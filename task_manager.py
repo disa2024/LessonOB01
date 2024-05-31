@@ -8,6 +8,7 @@ class Task():
         self.name = name
         self.deadline = deadline
         self.status = status
+        self.tasks = []
     def execute(self):
         self.status = 1
     def __str__(self):
@@ -17,16 +18,13 @@ class Task():
             status = "Не выполнена"
         return f"{self.name}, {self.deadline}, статус: {status}"
 
-class Task_manager():
-    def __init__(self):
-        self.tasks = []
     def add_task(self, name, deadline):
         task = Task(name, deadline)
         self.tasks.append(task)
     def change_status(self, task_index):
         if 0 <= task_index < len(self.tasks):
             self.tasks[task_index].execute()
-            print("\n","Задача")
+            print(f"\nЗадача {self.tasks[task_index].name} выполнена")
         else:
             print("Неверный индекс задачи")
 
@@ -43,7 +41,7 @@ class Task_manager():
 
 
 # Пример использования
-task = Task_manager()
+task = Task("Задача", "Время", 0)
 task.add_task("Сделать домашнее задание", "16-00")
 task.add_task("Купить продукты", "17-00")
 task.all_tasks()
