@@ -27,7 +27,6 @@ class Task_manager():
         if 0 <= task_index < len(self.tasks):
             self.tasks[task_index].execute()
             print("\n","Задача")
-            print(self.tasks[task_index])
         else:
             print("Неверный индекс задачи")
 
