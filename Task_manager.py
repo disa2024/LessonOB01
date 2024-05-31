@@ -26,12 +26,15 @@ class Task_manager():
     def change_status(self, task_index):
         if 0 <= task_index < len(self.tasks):
             self.tasks[task_index].execute()
+            print("\n","Задача")
+            print(self.tasks[task_index])
         else:
             print("Неверный индекс задачи")
 
-    def __str__(self):
+    def all_tasks(self):
         print("\n","Все задачи:")
-        return "\n".join(str(task) for task in self.tasks)
+        for task in self.tasks:
+            print(task)
 
     def get_current_tasks(self):
         for task in self.tasks:
@@ -44,10 +47,11 @@ class Task_manager():
 task = Task_manager()
 task.add_task("Сделать домашнее задание", "16-00")
 task.add_task("Купить продукты", "17-00")
-print(task)
+task.all_tasks()
 task.change_status(1)
 task.get_current_tasks()
-print(task)
+task.all_tasks()
+
 
 
 
